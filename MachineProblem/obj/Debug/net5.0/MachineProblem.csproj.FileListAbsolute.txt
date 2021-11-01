@@ -1,0 +1,16 @@
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\MachineProblem.exe
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\MachineProblem.deps.json
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\MachineProblem.runtimeconfig.json
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\MachineProblem.runtimeconfig.dev.json
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\MachineProblem.dll
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\ref\MachineProblem.dll
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\bin\Debug\net5.0\MachineProblem.pdb
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.csproj.AssemblyReference.cache
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.AssemblyInfoInputs.cache
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.AssemblyInfo.cs
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.csproj.CoreCompileInputs.cache
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.dll
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\ref\MachineProblem.dll
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.pdb
+C:\Users\luc\Desktop\IT11L\CS101\MachineProblem\MachineProblem\obj\Debug\net5.0\MachineProblem.genruntimeconfig.cache

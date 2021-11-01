@@ -32,6 +32,7 @@ namespace MachineProblem
                         Console.WriteLine("Invalid Input");
                         continue;
                 }
+                break;
             }
         }
         //Menu to enter an order
