@@ -61,7 +61,7 @@ namespace MachineProblem
                     " | Order Content: {1}", new_order.orderNumber, string.Join(",", currentOrder));
 
                     //choices
-                    Console.WriteLine("Press '1' to add content | Press '2' to delete content | Press '3' to return | Press '4' to continue");
+                    Console.WriteLine("Press '1' to add to order | Press '2' to delete from your order | Press '3' to return to main menu | Press '4' to send order");
                     string choice = Console.ReadLine();
                     switch (choice)
                     {
@@ -126,7 +126,7 @@ namespace MachineProblem
                             " | Order Content: {1}", new_order.orderNumber, string.Join(",", currentOrder));
 
                             //choices
-                            Console.WriteLine("Press '1' to add content | Press '2' to delete content | Press '3' to return | Press '4' to continue");
+                            Console.WriteLine("Press '1' to add to order | Press '2' to delete from your order | Press '3' to return to main menu | Press '4' to send order");
                             string choice = Console.ReadLine();
                             switch (choice)
                             {
@@ -176,7 +176,7 @@ namespace MachineProblem
             bool boolean = true;
             while (boolean)
             {
-                Console.WriteLine("Press '1' to Current order | Press '2' to traverse In-order | Press '3' to Next in line | Press '4' to return to main");
+                Console.WriteLine("Press '1' to Deliver Current order | Press '2' to browse orders | Press '3' to view current order | Press '4' to return to main menu");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
