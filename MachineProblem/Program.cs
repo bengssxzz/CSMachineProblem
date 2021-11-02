@@ -12,19 +12,20 @@ namespace MachineProblem
             //Create BST and Quuue class here
             var tree = new BinarySearchTree<int, string>();
             Queue<int> orderQueue = new Queue<int>();
+
             while (true)
             {
                 Console.WriteLine("Welcome to RESTAURANT's Delivery Service.");
                 Console.WriteLine("Are you\n1)Ordering\n2)Delivering");
                 Console.WriteLine("X)Exit");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine().ToUpper();
                 switch (input)
                 {
                     case "1":
                         Order(tree, orderQueue);
                         continue;
                     case "2":
-                        Deliver();
+                        Deliver(tree,orderQueue);
                         continue;
                     case "X":
                         break;
@@ -167,15 +168,68 @@ namespace MachineProblem
             }
         }
 
-
-
         //Menu to deliver and access delivery related functions
-        static void Deliver()
+        static void Deliver(BinarySearchTree<int,string> tree, Queue<int> orderQueue)
         {
-            //Option that DELIVERS, thus deleting whatever was next in queue and the associated BST entry
-            //Option that DISPLAYS ORDERS, that traverses INORDER
-            //Option that Displays next order (PEEKS at Queue but then searches and displays the associated BST entry
-            //Option to return
+            Console.WriteLine("Deliver");
+
+            bool boolean = true;
+            while (boolean)
+            {
+                Console.WriteLine("Press '1' to Current order | Press '2' to traverse In-order | Press '3' to Next in line | Press '4' to return to main");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        //Option that DELIVERS, thus deleting whatever was next in queue and the associated BST entry
+                        Console.WriteLine("Current order");
+                        try
+                        {
+                            int getOrderNumber = orderQueue.Dequeue(); //Get first order number in queue
+
+                            Console.WriteLine("Order number: {0}\n", tree.Search(getOrderNumber).key); //Get the order number
+                            Console.WriteLine("Orders: {0}\n", tree.Search(getOrderNumber).value); //Get the orders
+                            
+                            tree.Delete(getOrderNumber); //delete in bst
+                        }
+                        catch (InvalidOperationException) //if the queue is empty
+                        {
+                            Console.WriteLine("Empty orders");
+                        }
+
+                        break;
+
+                    case "2":
+                        //Option that DISPLAYS ORDERS, that traverses INORDER
+                        tree.InOrder();
+                        break;
+
+                    case "3":
+                        //Option that Displays next order (PEEKS at Queue but then searches and displays the associated BST entry
+                        Console.WriteLine("Next order");
+                        try
+                        {
+                            int peekOrderNumber = orderQueue.Peek(); //Get first order number in queue without removing it from queue
+                            
+                            Console.WriteLine("Order number: {0}\n", tree.Search(peekOrderNumber).key);
+                            Console.WriteLine("Orders: {0}\n", tree.Search(peekOrderNumber).value);
+                        }
+                        catch(InvalidOperationException) //if the queue is empty
+                        {
+                            Console.WriteLine("There's no more orders");
+                        }
+                        break;
+
+                    case "4":
+                        //Option to return
+                        return;
+
+                    default:
+                        //Invalid
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
+            }
         }
     }
 
