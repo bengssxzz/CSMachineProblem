@@ -95,7 +95,7 @@ namespace MachineProblem
                 new_order.orderContent = string.Join(",", currentOrder);
                 tree.Insert(new_order.orderNumber, new_order.orderContent);
                 orderQueue.Enqueue(new_order.orderNumber);
-                Console.WriteLine("Order Recieved!");
+                Console.WriteLine("Order Received!");
             }
 
             //if tree has nodes
@@ -160,7 +160,7 @@ namespace MachineProblem
                         new_order.orderContent = string.Join(",", currentOrder);
                         tree.Insert(new_order.orderNumber, new_order.orderContent);
                         orderQueue.Enqueue(new_order.orderNumber);
-                        Console.WriteLine("Order Recieved!");
+                        Console.WriteLine("Order Received!");
 
                         while_bool = false;
                     }
@@ -171,32 +171,20 @@ namespace MachineProblem
         //Menu to deliver and access delivery related functions
         static void Deliver(BinarySearchTree<int,string> tree, Queue<int> orderQueue)
         {
+            Deliver obj = new Deliver();
             Console.WriteLine("Deliver");
 
             bool boolean = true;
             while (boolean)
             {
-                Console.WriteLine("Press '1' to Deliver Current order | Press '2' to browse orders | Press '3' to view current order | Press '4' to return to main menu");
+                Console.WriteLine("Press '1' to Deliver Current order | Press '2' to browse orders | Press '3' to view current order | Press '4' to delay current order" +
+                    "| Press '5' to return to main menu");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
-                        //Option that DELIVERS, thus deleting whatever was next in queue and the associated BST entry
-                        Console.WriteLine("Current order");
-                        try
-                        {
-                            int getOrderNumber = orderQueue.Dequeue(); //Get first order number in queue
-
-                            Console.WriteLine("Order number: {0}\n", tree.Search(getOrderNumber).key); //Get the order number
-                            Console.WriteLine("Orders: {0}\n", tree.Search(getOrderNumber).value); //Get the orders
-                            
-                            tree.Delete(getOrderNumber); //delete in bst
-                        }
-                        catch (InvalidOperationException) //if the queue is empty
-                        {
-                            Console.WriteLine("Empty orders");
-                        }
-
+                        //Delivers currently selected order
+                        obj.deliverCurrentOrder(tree, orderQueue);
                         break;
 
                     case "2":
@@ -205,22 +193,16 @@ namespace MachineProblem
                         break;
 
                     case "3":
-                        //Option that Displays next order (PEEKS at Queue but then searches and displays the associated BST entry
-                        Console.WriteLine("Next order");
-                        try
-                        {
-                            int peekOrderNumber = orderQueue.Peek(); //Get first order number in queue without removing it from queue
-                            
-                            Console.WriteLine("Order number: {0}\n", tree.Search(peekOrderNumber).key);
-                            Console.WriteLine("Orders: {0}\n", tree.Search(peekOrderNumber).value);
-                        }
-                        catch(InvalidOperationException) //if the queue is empty
-                        {
-                            Console.WriteLine("There's no more orders");
-                        }
+                        //Peeks at queue
+                        obj.displayCurrentOrder(tree, orderQueue);
                         break;
 
                     case "4":
+                        //Delays current order
+                        obj.delayOrder(orderQueue);
+                        break;
+
+                    case "5":
                         //Option to return
                         return;
 
