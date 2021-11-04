@@ -12,6 +12,10 @@ namespace MachineProblem
             //Create BST and Quuue class here
             var tree = new BinarySearchTree<int, string>();
             Queue<int> orderQueue = new Queue<int>();
+            Dictionary<string, decimal> menuList = new Dictionary<string, decimal>()
+            {
+                {"Coke", 12}, {"Bepis", 15}, {"Tapsi", 45}, {"Spag", 55}
+            };
 
             while (true)
             {
@@ -22,10 +26,10 @@ namespace MachineProblem
                 switch (input)
                 {
                     case "1":
-                        Order(tree, orderQueue);
+                        Order(tree, orderQueue, menuList);
                         continue;
                     case "2":
-                        Deliver(tree,orderQueue);
+                        Deliver(tree,orderQueue, menuList);
                         continue;
                     case "X":
                         break;
@@ -37,7 +41,7 @@ namespace MachineProblem
             }
         }
         //Menu to enter an order
-        static void Order(BinarySearchTree<int, string> tree, Queue<int> orderQueue)
+        static void Order(BinarySearchTree<int, string> tree, Queue<int> orderQueue, Dictionary<string, decimal> menuList)
         {
             //Create and display customer's order number (Randomly generated number not in the bst yet)
             Random rnd = new Random();
@@ -58,7 +62,7 @@ namespace MachineProblem
                 {
                     //displays currentOrder and orderNumber
                     Console.WriteLine("Order Number: {0}" +
-                    " | Order Content: {1}", new_order.orderNumber, string.Join(",", currentOrder));
+                    " | Order Content: {1} | Current Price: {2}", new_order.orderNumber, string.Join(",", currentOrder), new_order.orderPrice);
 
                     //choices
                     Console.WriteLine("Press '1' to add to order | \nPress '2' to delete from your order | \nPress '3' to return to main menu | \nPress '4' to send order |\n");
@@ -67,13 +71,13 @@ namespace MachineProblem
                     {
                         case "1":
                             //addContent method from Order class
-                            currentOrder = new_order.addContent(currentOrder);
+                            currentOrder = new_order.addContent(currentOrder, menuList);
                             while_bool = true;
                             break;
 
                         case "2":
                             //deleteContent method from Order class
-                            currentOrder = new_order.deleteContent(currentOrder);
+                            currentOrder = new_order.deleteContent(currentOrder, menuList);
                             while_bool = true;
                             break;
 
@@ -95,7 +99,7 @@ namespace MachineProblem
                 new_order.orderContent = string.Join(",", currentOrder);
                 tree.Insert(new_order.orderNumber, new_order.orderContent);
                 orderQueue.Enqueue(new_order.orderNumber);
-                Console.WriteLine("Order Received!");
+                Console.WriteLine("Order Received! Your total is P{0}", new_order.orderPrice);
             }
 
             //if tree has nodes
@@ -123,7 +127,7 @@ namespace MachineProblem
                         {
                             //displays currentOrder and orderNumber
                             Console.WriteLine("Order Number: {0}" +
-                            " | Order Content: {1}", new_order.orderNumber, string.Join(",", currentOrder));
+                            " | Order Content: {1} | Current Price: {2}", new_order.orderNumber, string.Join(",", currentOrder), new_order.orderPrice);
 
                             //choices
                             Console.WriteLine("Press '1' to add to order | \nPress '2' to delete from your order |\nPress '3' to return to main menu |\nPress '4' to send order |\n");
@@ -132,13 +136,13 @@ namespace MachineProblem
                             {
                                 case "1":
                                     //addContent method from Order class
-                                    currentOrder = new_order.addContent(currentOrder);
+                                    currentOrder = new_order.addContent(currentOrder, menuList);
                                     while_bool2 = true;
                                     break;
 
                                 case "2":
                                     //deleteContent method from Order class
-                                    currentOrder = new_order.deleteContent(currentOrder);
+                                    currentOrder = new_order.deleteContent(currentOrder, menuList);
                                     while_bool2 = true;
                                     break;
 
@@ -160,8 +164,7 @@ namespace MachineProblem
                         new_order.orderContent = string.Join(",", currentOrder);
                         tree.Insert(new_order.orderNumber, new_order.orderContent);
                         orderQueue.Enqueue(new_order.orderNumber);
-                        Console.WriteLine("Order Received!");
-
+                        Console.WriteLine("Order Received! Your total is P{0}", new_order.orderPrice);
                         while_bool = false;
                     }
                 }
@@ -169,7 +172,7 @@ namespace MachineProblem
         }
 
         //Menu to deliver and access delivery related functions
-        static void Deliver(BinarySearchTree<int,string> tree, Queue<int> orderQueue)
+        static void Deliver(BinarySearchTree<int,string> tree, Queue<int> orderQueue, Dictionary<string, decimal> menuList)
         {
             Deliver obj = new Deliver();
             Console.WriteLine("Deliver");
@@ -184,7 +187,7 @@ namespace MachineProblem
                 {
                     case "1":
                         //Delivers currently selected order
-                        obj.deliverCurrentOrder(tree, orderQueue);
+                        obj.deliverCurrentOrder(tree, orderQueue, menuList);
                         break;
 
                     case "2":
@@ -194,7 +197,7 @@ namespace MachineProblem
 
                     case "3":
                         //Peeks at queue
-                        obj.displayCurrentOrder(tree, orderQueue);
+                        obj.displayCurrentOrder(tree, orderQueue, menuList);
                         break;
 
                     case "4":

@@ -9,7 +9,7 @@ namespace MachineProblem
 {
     class Deliver
     {
-        public void deliverCurrentOrder(BinarySearchTree<int, string> tree, Queue<int> orderQueue)
+        public void deliverCurrentOrder(BinarySearchTree<int, string> tree, Queue<int> orderQueue, Dictionary<string, decimal> menuList)
         {
             //Option that DELIVERS, thus deleting whatever was next in queue and the associated BST entry
             Console.WriteLine("Current order");
@@ -19,6 +19,13 @@ namespace MachineProblem
 
                 Console.WriteLine("Order number: {0}\n", tree.Search(getOrderNumber).key); //Get the order number
                 Console.WriteLine("Orders: {0}\n", tree.Search(getOrderNumber).value); //Get the orders
+                string[] splitOrders = tree.Search(getOrderNumber).value.Split(",");
+                decimal totalPrice = 0;
+                foreach (string order in splitOrders)
+                {
+                    totalPrice += menuList[order];
+                }
+                Console.WriteLine("Total Price: {0}\n", totalPrice);
 
                 tree.Delete(getOrderNumber); //delete in bst
             }
@@ -28,7 +35,7 @@ namespace MachineProblem
             }
         }
 
-        public void displayCurrentOrder(BinarySearchTree<int, string> tree, Queue<int> orderQueue)
+        public void displayCurrentOrder(BinarySearchTree<int, string> tree, Queue<int> orderQueue, Dictionary<string, decimal> menuList)
         {
             //Option that Displays next order (PEEKS at Queue but then searches and displays the associated BST entry
             Console.WriteLine("Next order");
@@ -38,6 +45,13 @@ namespace MachineProblem
 
                 Console.WriteLine("Order number: {0}\n", tree.Search(peekOrderNumber).key);
                 Console.WriteLine("Orders: {0}\n", tree.Search(peekOrderNumber).value);
+                string[] splitOrders = tree.Search(peekOrderNumber).value.Split(",");
+                decimal totalPrice = 0;
+                foreach (string order in splitOrders)
+                {
+                    totalPrice += menuList[order];
+                }
+                Console.WriteLine("Total Price: {0}\n", totalPrice);
             }
             catch (InvalidOperationException) //if the queue is empty
             {
