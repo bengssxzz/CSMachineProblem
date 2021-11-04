@@ -78,15 +78,25 @@ namespace BST2
             if (root == null)
                 return root;
             else if (key.CompareTo(root.key) == -1) //less than
+            {
+                Console.WriteLine("Less than");
                 root.left = Delete(root.left, key);
+            }
             else if (key.CompareTo(root.key) == 1)  //greater than
+            {
+                Console.WriteLine("Greater than");
                 root.right = Delete(root.right, key);
+            }
             else
             {
                 if (root.left == null)
+                {
                     return root.right;
+                }
                 else if (root.right == null)
+                {
                     return root.left;
+                }
 
                 root.key = MinValue(root.right);
                 root.right = Delete(root.right, root.key);

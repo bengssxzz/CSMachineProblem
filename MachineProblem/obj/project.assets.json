@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Josh\\.nuget\\packages\\": {}
+    "C:\\Users\\Jhec\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Josh\\Source\\Repos\\CSMachineProblem\\MachineProblem\\MachineProblem.csproj",
+      "projectUniqueName": "C:\\Users\\Jhec\\Documents\\GitHub\\Project\\CSMachineProblem\\MachineProblem\\MachineProblem.csproj",
       "projectName": "MachineProblem",
-      "projectPath": "C:\\Users\\Josh\\Source\\Repos\\CSMachineProblem\\MachineProblem\\MachineProblem.csproj",
-      "packagesPath": "C:\\Users\\Josh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Josh\\Source\\Repos\\CSMachineProblem\\MachineProblem\\obj\\",
+      "projectPath": "C:\\Users\\Jhec\\Documents\\GitHub\\Project\\CSMachineProblem\\MachineProblem\\MachineProblem.csproj",
+      "packagesPath": "C:\\Users\\Jhec\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jhec\\Documents\\GitHub\\Project\\CSMachineProblem\\MachineProblem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Josh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jhec\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
