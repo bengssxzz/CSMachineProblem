@@ -68,6 +68,11 @@ namespace MachineProblem
             try
             {
                 int getOrderNumber = orderQueue.Dequeue(); //Get first order number in queue
+
+                //textfile to delay
+                TextFileIO textFile = new TextFileIO();
+                textFile.DelayOrder(getOrderNumber);
+
                 orderQueue.Enqueue(getOrderNumber); // Enqueues the number
                 Console.WriteLine("Order delayed...");
             }

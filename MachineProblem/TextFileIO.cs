@@ -60,6 +60,34 @@ namespace MachineProblem
             writer.Close();        
         }
 
+        //To delay order
+        public void DelayOrder(int orderNumber)
+        {
+            string orderDelay = "";
+
+            List<string> list = File.ReadAllLines("TextFileBST.txt").ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                string[] temp = list[i].Split('=');
+                if (int.Parse(temp[0]) == orderNumber)
+                {
+                    orderDelay = list[i];//Save line before removing
+                    
+                    list.RemoveAt(i);//Remove the order line in list
+                    break;
+                }
+            }
+            list.Add(orderDelay); //Then add the save line in list
+
+            //Rewrite text file
+            StreamWriter writer = new StreamWriter("TextFileBST.txt");
+            foreach (string item in list)
+            {
+                writer.WriteLine(item);
+            }
+            writer.Close();
+        }
+
         //Delete line according to specific order number
         public void DeleteOrder(int orderNumber)
         {
